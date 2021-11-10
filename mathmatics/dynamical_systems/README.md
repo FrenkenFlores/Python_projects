@@ -25,3 +25,12 @@ xi = x(i - 1) + x'dt
 
 ![graphics](graphic.png)
 
+
+## 2 dimensional ordinary differential equation
+
+```markdown
+x1' = a00 * x1 + a01 * x2
+x2' = a10 * x1 + a11 * x2
+```
+
+![graphics](2D_dynamical_system.png)
