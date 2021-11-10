@@ -1,6 +1,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as anm
 from scipy.integrate import solve_ivp  # numerical integration solver
 
 def plot_trajectory(system, params, initial_condition, dt=0.1, T=6,
@@ -37,7 +38,7 @@ def plot_trajectory(system, params, initial_condition, dt=0.1, T=6,
     x = solution.y
 
     # make a color map to visualize time
-    timecolors = np.array([(0 , 1 , 1, i)  for i in t / t[-1]])
+    timecolors = np.array([(0 , 0.3 , 1, i)  for i in t / t[-1]])
 
     # make a large figure
     fig, (ah1, ah2, ah3) = plt.subplots(1, 3)
@@ -61,14 +62,14 @@ def plot_trajectory(system, params, initial_condition, dt=0.1, T=6,
     ah3.plot(x[0,0], x[1,0], 'bx')
 
     # adjust spacing between subplots
-    plt.subplots_adjust(wspace=0.5)
+    plt.tight_layout()
 
     # add figure title
     if figtitle is not None:
       fig.suptitle(figtitle, size=16)
 
+    # plt.savefig("2D_dynamical_system_spiral_stable_plot")
     plt.show()
-
 
 def plot_streamplot(A, ax, figtitle=None):
     """
@@ -96,7 +97,7 @@ def plot_streamplot(A, ax, figtitle=None):
     color = 2 * np.log1p(magnitude) #Avoid taking log of zero
 
     # plot
-    plt.sca(ax)
+    # plt.sca(ax)
     plt.streamplot(x1, x2, x1dot, x2dot, color=color,
                    linewidth=1, cmap=plt.cm.cividis,
                    density=2, arrowstyle='->', arrowsize=1.5)
@@ -123,6 +124,9 @@ def plot_streamplot(A, ax, figtitle=None):
         plt.arrow(0, 0, 20*eigenvector2[0], 20*eigenvector2[1],
                   width=0.5, color='b', head_width=2,
                   length_includes_head=True)
+
+        # plt.savefig("2D_dynamical_system_spiral_stable_stream")
+        plt.show()
 
 def plot_specific_example_stream_plots(A_options):
     """

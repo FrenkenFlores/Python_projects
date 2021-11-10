@@ -27,11 +27,12 @@ def system(t, x, a00, a01, a10, a11):
 
 
 def main():
-    A = np.array([[2, -5],[1, -2]])
+    A = np.array([[3, 1],[0, 2]])
     T = 6
     dt = 0.1
-    x0 = np.array([-0.1, 0.2])
-    tools.plot_trajectory(system, [A[0,0],A[0,1],A[1,0],A[1,1]], x0, dt=dt, T=T)
+    x0 = np.array([1, 1])
+    # tools.plot_trajectory(system, [A[0,0],A[0,1],A[1,0],A[1,1]], x0, dt=dt, T=T)
+    tools.plot_streamplot(A, x0)
 
 if __name__ == "__main__":
     main()

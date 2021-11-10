@@ -32,5 +32,27 @@ xi = x(i - 1) + x'dt
 x1' = a00 * x1 + a01 * x2
 x2' = a10 * x1 + a11 * x2
 ```
+```markdown
 
-![graphics](2D_dynamical_system.png)
+A = [[a00, a01], [a10, a11]]
+
+[x1', x2']T = [[a00-l, a01], [a10, a11-l]][x1, x2]T
+det([[a00-l, a01], [a10, a11-l]]) = 0
+
+(a00-l) * (a11-l) - (a01) * (a10) = 0
+l1 = c1
+l2 = c2
+```
+By varying matrix A values, eigenvalues changes:
+
+a) eigenvalues l1 and l2 are imaginary numbers
+![graphics](2D_dynamical_system_center_stable_plot.png)
+![graphics](2D_dynamical_system_center_stable_stream.png)
+
+b) eigenvalues l1 and l2 are real numbers
+![graphics](2D_dynamical_system_node_unstable_plot.png)
+![graphics](2D_dynamical_system_node_unstable_stream.png)
+
+c) eigenvalues l1 and l2 are complex numbers
+![graphics](2D_dynamical_system_spiral_stable_plot.png)
+![graphics](2D_dynamical_system_spiral_stable_stream.png)
